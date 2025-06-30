@@ -1,6 +1,6 @@
 import React, { useCallback, type SyntheticEvent, useEffect, useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonSet, Layer, TextArea, TextInput , Dropdown } from '@carbon/react';
+import { Button, ButtonSet, Dropdown, Layer, TextArea, TextInput } from '@carbon/react';
 import { useLayoutType, showSnackbar, useSession, useConfig } from '@openmrs/esm-framework';
 import type { ConfigSchema } from '../config-schema';
 import type { NewCohortData, OpenmrsCohort } from '../api/types';
@@ -28,7 +28,7 @@ const CreateEditPatientList: React.FC<CreateEditPatientListProps> = ({
   const isTablet = useLayoutType() === 'tablet';
   const responsiveLevel = isTablet ? 1 : 0;
   const session = useSession();
-  const { listCohortTypes } = useCohortTypes();
+  const { listCohortTypes } = useCohortTypes() ?? {};
   const { user } = session;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [cohortDetails, setCohortDetails] = useState<NewCohortData>({

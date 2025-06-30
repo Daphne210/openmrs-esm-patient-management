@@ -144,11 +144,6 @@ export function usePatientListMembers(
   };
 }
 
-// export function useCohortTypes() {
-//   const swrResult = useSWR<FetchResponse<CohortResponse<CohortType>>, Error>(`${cohortUrl}/cohorttype`, openmrsFetch);
-//   return { ...swrResult, data: swrResult?.data?.data?.results };
-// }
-
 export function useCohortTypes() {
   const apiUrl = `${cohortUrl}/cohorttype`;
   const { data, error, isLoading, mutate } = useSWR<FetchResponse<CohortResponse<CohortType>>, Error>(
